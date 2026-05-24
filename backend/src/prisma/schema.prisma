@@ -1,0 +1,61 @@
+// This is your Prisma schema file
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  nim       String   @unique
+  name      String
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CategoryEvent {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  color       String   @default("#6366f1")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  events      Event[]
+}
+
+model Pembicara {
+  id          Int      @id @default(autoincrement())
+  name        String
+  title       String
+  expertise   String
+  email       String?
+  phone       String?
+  bio         String?
+  photoUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  events      Event[]
+}
+
+model Event {
+  id           Int           @id @default(autoincrement())
+  title        String
+  description  String?
+  date         DateTime
+  time         String
+  location     String
+  capacity     Int           @default(0)
+  status       String        @default("upcoming")
+  imageUrl     String?
+  categoryId   Int
+  pembicaraId  Int
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  category     CategoryEvent @relation(fields: [categoryId], references: [id])
+  pembicara    Pembicara     @relation(fields: [pembicaraId], references: [id])
+}
