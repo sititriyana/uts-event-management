@@ -20,8 +20,8 @@ Universitas Politeknik Harapan Bersama Tegal
 ## Akun Login untuk Demo
 
 | Field | Value |
-| NIM | 24090135 |
-| Password | 24090135 |
+| NIM | 24090098 |
+| Password | 240901098 |
 
 ---
 
