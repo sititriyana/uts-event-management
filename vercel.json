@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/FRONTEND/index.html"
+      "destination": "/FRONTEND/$1"
     }
   ]
 }
