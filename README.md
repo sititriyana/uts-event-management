@@ -9,8 +9,8 @@ Universitas Politeknik Harapan Bersama Tegal
 ## Biodata Mahasiswa
 
 
-| Nama | Alfian Farros Alfarisi |
-| NIM | 24090135 |
+| Nama | Siti Triyana |
+| NIM | 24090098 |
 | Program Studi | D-4 Teknik Informatika |
 | Fakultas | Sekolah Vokasi |
 | Kampus | Jalan Mataram No.9, Kota Tegal |
