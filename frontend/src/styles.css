@@ -1,31 +1,116 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg: #f4f7ff;
-  --bg-2: #ffffff;
-  --bg-3: #eef2ff;
-  --border: #dbe4ff;
-  --text: #1e293b;
-  --text-2: #64748b;
+  /* BACKGROUND: Dibuat lebih hangat/clean, banting setir dari nuansa biru-ungu lama */
+  --bg: #faf7f7;          /* Abu-abu soft dengan tint kemerahan biar senada */
+  --bg-2: #ffffff;        /* Putih bersih untuk card */
+  --bg-3: #fff1f2;        /* Soft maroon/pink muda buat background komponen kecil */
+  
+  /* BORDER: Menyesuaikan warna warm maroon, bukan biru lagi */
+  --border: #ffe4e6;      
+  
+  /* TEXT: Dibuat kontras tinggi agar super jelas dibaca dosen */
+  --text: #1c1917;        /* Hitam arang tajam (Stone-900) */
+  --text-2: #685757;      /* Abu-abu gelap dengan undertone cokelat/maroon hangat */
 
-  --accent: #7c3aed;
-  --accent-2: #6d28d9;
+  /* ACCENT UTAMA (MAROON ELEGAN): Tidak kematengan, teks putih di atasnya bakal nyala banget */
+  --accent: #a21caf;      /* Lu bisa pake #991b1b (Maroon murni) atau #a11f3c (Maroon Rose) */
+  --accent: #a11f3c;      /* <--- Ini Maroon Sedang terbaik, kontras & mewah */
+  --accent-2: #7f1d1d;    /* Maroon gelap pas tombol disorot/di-hover kursor */
 
+  /* STATUS (Tetap aman untuk indikator) */
   --success: #10b981;
   --warning: #f59e0b;
   --danger: #ef4444;
 
-  --sidebar: #111827;
-  --sidebar-text: #f9fafb;
-  --sidebar-hover: #1f2937;
-  --sidebar-active: #8b5cf6;
+  /* SIDEBAR: Diubah total dari hitam pekat jadi Luxury Dark Maroon, dijamin beda banget! */
+  --sidebar: #3b0712;         /* Base Hitam Maroon yang mewah */
+  --sidebar-text: #fff1f2;    /* Teks putih agak pink soft biar adem di mata */
+  --sidebar-hover: #4c0519;   /* Maroon sedang saat menu disorot */
+  --sidebar-active: #a11f3c;  /* Maroon utama saat menu aktif */
 
+  /* UTALITAS */
   --radius: 8px;
   --radius-lg: 12px;
-  --shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+  --shadow: 0 4px 20px rgba(59, 7, 18, 0.15); /* Shadow halus bernuansa maroon */
 }
 
+/* Mengubah background card kecil (Total Event, Kategori, dll) saat di-hover */
+.dashboard-card:hover, .stat-card:hover, [class*="card"]:hover {
+  border-color: var(--accent) !important;
+  transform: translateY(-2px);
+  transition: all 0.2s ease-in-out;
+}
+
+/* 2. MENYESUAIKAN WARNA IKON / BADGE STATISTIK */
+/* Jika ikonnya pakai background bawaan ungu/biru soft, kita paksa jadi maroon soft */
+[class*="icon-container"], [class*="avatar"], .card-icon {
+  background-color: var(--bg-3) !important; /* Warna soft pink/maroon tipis */
+  color: var(--accent) !important;           /* Ikonnya jadi warna maroon utama */
+}
+
+/* 3. MEROMBAK BADGE TEKNOLOGI (React, Express, Prisma, Zustand) */
+/* Biar warnanya gak warna-warni tabrakan sama tema maroon baru */
+[class*="tech-badge"], .teknologi-container span, [class*="badge"] {
+  background-color: #fff1f2 !important;     /* Background soft maroon */
+  color: #991b1b !important;                /* Teks merah maroon tegas */
+  border: 1px solid #fecdd3 !important;     /* Border tipis pink/maroon */
+  font-weight: 500 !important;
+  border-radius: 6px !important;
+}
+
+/* 4. MODIFIKASI SIDEBAR & HEADER NAVIGATION */
+/* Pastikan teks menu aktif di sidebar atau navbar pakai maroon */
+.active-menu, [class*="nav-link"].active, [class*="sidebar-item"].active {
+  background-color: var(--sidebar-hover) !important;
+  color: var(--sidebar-text) !important;
+  border-left: 4px solid var(--accent) !important; /* Aksen garis maroon di pinggir */
+}
+
+/* Tombol logout atau tombol utama di dashboard */
+.btn-logout, [class*="logout-button"] {
+  background-color: transparent !important;
+  color: var(--text-2) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.btn-logout:hover, [class*="logout-button"]:hover {
+  background-color: #fff1f2 !important;
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+/* 5. PERHALUS SHADOW SEMUA CARD DI DASHBOARD */
+div[class*="card"], .main-card, section {
+  box-shadow: var(--shadow) !important;
+  border: 1px solid var(--border) !important;
+  background-color: var(--bg-2) !important;
+}
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.DashboardPage_statCard__icon__, 
+[class*="stat-icon"], 
+[class*="icon-wrapper"],
+[class*="Card"] div:first-child,
+div[class*="icon"] {
+  background-color: #fff1f2 !important; /* Soft maroon pink */
+}
+
+/* 2. Paksa semua jenis icon (SVG) di dalam kotak statistik jadi maroon murni */
+.DashboardPage_statCard__icon__ svg,
+[class*="stat-icon"] svg,
+[class*="icon-wrapper"] svg,
+div[class*="icon"] svg,
+svg[class*="lucide"] {
+  stroke: #a11f3c !important; /* Warna Maroon Utama */
+  color: #a11f3c !important;  /* Jaga-jaga kalau icon-nya pakai fill/color */
+}
+
+/* 3. Efek hover biar kalau card-nya disentuh jadi makin mewah */
+[class*="card"]:hover div:first-child,
+[class*="stat"]:hover div:first-child {
+  background-color: #ffe4e6 !important; /* Sedikit lebih gelap pas di-hover */
+}
 
 body {
   font-family: 'Poppins', sans-serif;

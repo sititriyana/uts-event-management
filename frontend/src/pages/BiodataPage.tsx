@@ -18,14 +18,14 @@ const BiodataPage = () => {
           <p className="profile-kampus">Universitas Politeknik Harapan Bersama</p>
 
           <div className="profile-contacts">
-            <a href="mailto:alfian@example.com" className="contact-chip">
+            <a href="mailto:tryana@example.com" className="contact-chip">
               <Mail size={14} /> tryana@example.com
             </a>
             <span className="contact-chip">
               <MapPin size={14} /> Tegal, Jawa Tengah
             </span>
             <span className="contact-chip">
-              <Phone size={14} /> 08xx-xxxx-xxxx
+              <Phone size={14}/> 08xx-xxxx-xxxx
             </span>
           </div>
 
@@ -40,7 +40,7 @@ const BiodataPage = () => {
           <div className="detail-card">
             <div className="detail-header"><GraduationCap size={20} /><h3>Informasi Akademik</h3></div>
             <div className="detail-grid">
-              <div className="detail-item"><span>Nama Lengkap</span><strong>ASiti Triyana</strong></div>
+              <div className="detail-item"><span>Nama Lengkap</span><strong>Siti Triyana</strong></div>
               <div className="detail-item"><span>NIM</span><strong>24090098</strong></div>
               <div className="detail-item"><span>Program Studi</span><strong>D-4 Teknik Informatika</strong></div>
               <div className="detail-item"><span>Fakultas</span><strong>Sekolah Vokasi</strong></div>
